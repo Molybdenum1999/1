@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caesar</title>
+  <meta name="description" content="Caesar — an illustration.">
+  <meta property="og:title" content="Caesar">
+  <meta property="og:image" content="caesar.png">
+  <link rel="icon" href="caesar.png">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #3f3a63;
+      --accent: #e07aa0;
+      --muted: #8a86a3;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    header {
+      text-align: center;
+      padding: 28px 16px 0;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    h1::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 4px;
+      margin: 10px auto 0;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      min-height: 0;
+    }
+    /* The canvas is 3840x2160 with the figure in the middle; frame just the figure
+       (source region x 1380-2340, y 360-1540) without editing caesar.png. */
+    .frame {
+      display: block;
+      width: min(100%, 520px, calc((100vh - 150px) * 960 / 1180));
+      width: min(100%, 520px, calc((100dvh - 150px) * 960 / 1180));
+      aspect-ratio: 960 / 1180;
+      overflow: hidden;
+      animation: rise 0.8s ease-out both;
+    }
+    .frame img {
+      display: block;
+      width: 400%;
+      max-width: none;
+      height: auto;
+      margin-left: -143.75%;
+      margin-top: -37.5%;
+    }
+    footer {
+      text-align: center;
+      padding: 0 16px 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .frame { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Caesar</h1>
+  </header>
+  <main>
+    <a class="frame" href="caesar.png" title="Open full-size image">
+      <img src="caesar.png" width="3840" height="2160"
+           alt="Illustration of a smiling girl with long pink twin-tails and green eyes, wearing a white puff-sleeved blouse under a dark purple pinafore.">
+    </a>
+  </main>
+  <footer>Click the picture to view it full size.</footer>
+</body>
+</html>
